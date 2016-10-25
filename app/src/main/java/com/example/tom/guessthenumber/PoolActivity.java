@@ -16,10 +16,10 @@ public class PoolActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SelectionMain.class);
                 startActivity(intent);
                 finish();
             }
-        }, 4000);
+        }, 2000);
     }
 }

@@ -8,7 +8,7 @@ import android.content.ContentValues;
 
 public class MyDBHandler extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "productDB.db";
     public static final String TABLE_PRODUCTS = "products";
     public static final String COLUMN_ID = "_id";
@@ -22,7 +22,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_PRODUCTS + "(" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT , " +
                 COLUMN_PRODUCTNAME + " TEXT " +
                 ");";
         db.execSQL(query);
@@ -58,6 +58,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         Cursor c = db.rawQuery(query, null);
         //Move to the first row in your results
         c.moveToFirst();
+
 
 
         //Position after the last row means the end of the results

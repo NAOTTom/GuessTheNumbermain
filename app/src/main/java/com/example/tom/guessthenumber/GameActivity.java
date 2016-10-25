@@ -1,6 +1,7 @@
 package com.example.tom.guessthenumber;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -48,8 +49,17 @@ public class GameActivity extends AppCompatActivity {
                     b_plus.setEnabled(false);
                     b_minus.setEnabled(false);
 
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent = new Intent(getApplicationContext(), SaveActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }, 3000);
 
-                } else if (current_number > number_to_guess) {
+                }else if (current_number > number_to_guess) {
                     tv_title.setText("Down!");
                     guesses++;
                 } else if (current_number < number_to_guess) {

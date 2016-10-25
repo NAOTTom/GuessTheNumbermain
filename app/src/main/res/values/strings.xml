@@ -1,14 +1,16 @@
 <resources>
     <string name="app_name">Guess The Number</string>
-    <string name="appname">Higher Or Lower</string>
-    <string name="poolloading">loading..</string>
+    <string name="appname">While your application is being reviewed</string>
+    <string name="poolloading">Play a game and well notify you when were done</string>
     <string name="button_check">Check</string>
     <string name="text_guess">Guess The Number</string>
-
     <string name="text_tries">" tries!"</string>
     <string name="text_congrats">"Congratulations, You guessed the number in "</string>
     <string name="saveText">Thank you for playing Guess The Number</string>
     <string name="previousScores">Your Previous Scores</string>
     <string name="delete_scores">Delete Scores</string>
     <string name="save_score">Save Score</string>
+    <string name="button_spin">SPIN</string>
+    <string name="title_activity_main_activity_three">MainActivityThree</string>
+    <string name="flip_text">Flip</string>
 </resources>

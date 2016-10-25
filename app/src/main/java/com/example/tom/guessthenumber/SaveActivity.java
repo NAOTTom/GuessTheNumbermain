@@ -1,54 +1,55 @@
 package com.example.tom.guessthenumber;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SaveActivity extends ActionBarActivity {
 
-    EditText numbersInput;
-    TextView numbersText;
+    EditText emailInput;
+    TextView emailText;
     MyDBHandler dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save);
-
-        numbersInput = (EditText) findViewById(R.id.numbersInput);
-        numbersText = (TextView) findViewById(R.id.numbersText);
+        emailText = (TextView) findViewById(R.id.emailText);
+        emailInput = (EditText) findViewById(R.id.emailInput);
         dbHandler = new MyDBHandler(this, null, null, 1);
         printDatabase();
-
     }
 
     //Add a product to the database
     public void addButtonClicked(View view){
-        Products product = new Products(numbersInput.getText().toString());
-        dbHandler.addProduct(product);
+        Products products = new Products(emailInput.getText().toString());
+        dbHandler.addProduct(products);
         printDatabase();
+        //print prototype message
+        Toast.makeText(SaveActivity.this,
+        "This is a prototype, users email will not display in final release", Toast.LENGTH_LONG)
+        .show();
     }
 
     //Delete items
     public void deleteButtonClicked(View view){
-        String inputText = numbersInput.getText().toString();
+        String inputText = emailInput.getText().toString();
         dbHandler.deleteProduct(inputText);
         printDatabase();
+        //print prototype message
+        Toast.makeText(SaveActivity.this,
+                "This is a prototype, delete button will not be available in final release", Toast.LENGTH_LONG)
+                .show();
     }
 
     //Print the database
     public void printDatabase(){
         String dbString = dbHandler.databaseToString();
-        numbersText.setText(dbString);
-        numbersInput.setText("");
+        emailText.setText(dbString);
+        emailInput.setText("");
     }
 
-   //restart the game
-    public void onClick(View view) {
-        Intent intent = new Intent(this, GameActivity.class);
-        startActivity(intent);
-    }
 }

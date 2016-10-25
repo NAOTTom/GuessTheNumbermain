@@ -1,5 +1,4 @@
 package com.example.tom.guessthenumber;
-
 //Each row in the database can be represented by an object
 //Columns will represent the objects properties
 public class Products {
